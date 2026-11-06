@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install project and development tools
+        run: python -m pip install --upgrade pip && python -m pip install -e '.[dev,ner]'
+      - name: Tests and core coverage
+        run: python -m pytest --cov=veilrelay.detectors --cov=veilrelay.models --cov=veilrelay.policy --cov=veilrelay.vault --cov=veilrelay.stream --cov-report=term-missing
+      - name: Ruff
+        run: ruff check .
+      - name: Type checks
+        run: mypy
+      - name: Bandit
+        run: bandit -c pyproject.toml -r src
+      - name: Dependency audit
+        run: pip-audit --strict
+      - name: Repository secret scan (value-free output)
+        run: python scripts/scan_repo.py
+      - name: Reproducible synthetic benchmark smoke test
+        run: python bench/generate_synthetic.py && python bench/run_benchmark.py
+      - name: Build Docker image
+        run: docker build --tag veilrelay:ci .
