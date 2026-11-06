@@ -1,0 +1,23 @@
+[
+  {
+    "id": "summarize_invoice",
+    "task": "summarize",
+    "text": "Invoice INV-2048 is for USD 480 and is due on 12 November. Questions should be sent to alice@example.test.",
+    "question": "Summarize the invoice number, total amount, due date, and the contact email in one sentence.",
+    "expected_terms": ["INV-2048", "480", "12 November", "alice@example.test"]
+  },
+  {
+    "id": "extract_delivery",
+    "task": "extract",
+    "text": "Order 913 has status dispatched. The expected delivery is in 3 business days. Contact bob@example.test for support.",
+    "question": "Extract the order status, expected delivery time, and support email.",
+    "expected_terms": ["dispatched", "3 business days", "bob@example.test"]
+  },
+  {
+    "id": "qa_product_facts",
+    "task": "question_answering",
+    "text": "The Basic plan supports 4 devices and costs INR 399 per month. The billing contact is helpdesk@example.test.",
+    "question": "How many devices are supported, what is the monthly price, and what is the billing contact email?",
+    "expected_terms": ["4", "399", "helpdesk@example.test"]
+  }
+]

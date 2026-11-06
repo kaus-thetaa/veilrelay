@@ -13,5 +13,6 @@ dist/
 build/
 *.log
 *.jsonl
+!bench/data/*.jsonl
 bench/results/private-*
 .DS_Store

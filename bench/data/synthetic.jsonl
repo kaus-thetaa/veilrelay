@@ -1,0 +1,24 @@
+{"id": "email", "text": "Send the report to alice@example.test.", "entities": [{"start": 19, "end": 37, "type": "EMAIL"}]}
+{"id": "email_plus", "text": "Reply to bob+alerts@example.org by noon.", "entities": [{"start": 9, "end": 31, "type": "EMAIL"}]}
+{"id": "phone_india", "text": "Call the support number +91 98765 43210.", "entities": [{"start": 24, "end": 39, "type": "PHONE"}]}
+{"id": "phone_local", "text": "Reach the operator at 9876543210.", "entities": [{"start": 22, "end": 32, "type": "PHONE"}]}
+{"id": "ipv4", "text": "The test server is 203.0.113.9.", "entities": [{"start": 19, "end": 30, "type": "IP_ADDRESS"}]}
+{"id": "ipv6", "text": "The documentation host is 2001:db8::1.", "entities": [{"start": 26, "end": 37, "type": "IP_ADDRESS"}]}
+{"id": "credit_card", "text": "Use the sandbox card 4111111111111111.", "entities": [{"start": 21, "end": 37, "type": "CREDIT_CARD"}]}
+{"id": "iban", "text": "Transfer to IBAN GB82 WEST 1234 5698 7654 32.", "entities": [{"start": 17, "end": 44, "type": "IBAN"}]}
+{"id": "ssn", "text": "The fixture SSN is 078-05-1120.", "entities": [{"start": 19, "end": 30, "type": "SSN"}]}
+{"id": "aadhaar", "text": "Test Aadhaar-shaped value 234567890127.", "entities": [{"start": 26, "end": 38, "type": "AADHAAR"}]}
+{"id": "pan", "text": "Fixture PAN is ABCPD1234F.", "entities": [{"start": 15, "end": 25, "type": "PAN"}]}
+{"id": "ifsc", "text": "Use bank IFSC HDFC0001234.", "entities": [{"start": 14, "end": 25, "type": "IFSC"}]}
+{"id": "upi", "text": "Pay the sandbox VPA alice@okaxis.", "entities": [{"start": 20, "end": 32, "type": "UPI_ID"}]}
+{"id": "aws_key", "text": "Fake AWS access key AKIAIOSFODNN7EXAMPLE.", "entities": [{"start": 20, "end": 40, "type": "AWS_ACCESS_KEY"}]}
+{"id": "github_token", "text": "Fake GitHub token ghp_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKL.", "entities": [{"start": 18, "end": 60, "type": "GITHUB_TOKEN"}]}
+{"id": "gitlab_token", "text": "Fake GitLab token glpat-abcdefghijklmnopqrstuvwx.", "entities": [{"start": 18, "end": 48, "type": "GITLAB_TOKEN"}]}
+{"id": "openai_key", "text": "Fake provider key sk-proj-abcdefghijklmnopqrstuvwxyz012345.", "entities": [{"start": 18, "end": 58, "type": "OPENAI_KEY"}]}
+{"id": "anthropic_key", "text": "Fake provider key sk-ant-abcdefghijklmnopqrstuvwxyz012345.", "entities": [{"start": 18, "end": 57, "type": "ANTHROPIC_KEY"}]}
+{"id": "stripe_key", "text": "Fake Stripe key sk_live_abcdefghijklmnop123456.", "entities": [{"start": 16, "end": 46, "type": "STRIPE_KEY"}]}
+{"id": "jwt", "text": "Fixture token eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.signaturepayload123456.", "entities": [{"start": 14, "end": 85, "type": "JWT"}]}
+{"id": "private_key", "text": "Fixture key -----BEGIN PRIVATE KEY-----\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n-----END PRIVATE KEY-----.", "entities": [{"start": 12, "end": 98, "type": "PRIVATE_KEY"}]}
+{"id": "db_connection", "text": "Use postgres://fixture:fakepass@db.example.test:5432/sample.", "entities": [{"start": 4, "end": 59, "type": "DB_CONNECTION"}]}
+{"id": "entropy", "text": "Opaque credential: a8F1cD9kL2mQ7xP4vB6nR0sT5wY3zH1j.", "entities": [{"start": 19, "end": 51, "type": "HIGH_ENTROPY_SECRET"}]}
+{"id": "mixed", "text": "Email alice@example.test or call +91 98765 43210; AWS key AKIAIOSFODNN7EXAMPLE.", "entities": [{"start": 6, "end": 24, "type": "EMAIL"}, {"start": 33, "end": 48, "type": "PHONE"}, {"start": 58, "end": 78, "type": "AWS_ACCESS_KEY"}]}
