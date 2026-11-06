@@ -107,7 +107,7 @@ For a hardened local deployment with a read-only root filesystem, dropped Linux 
 | US identifier | SSN shape and segment checks |
 | Credentials | AWS, GitHub/GitLab, OpenAI/Anthropic/Stripe-style keys, JWT, PEM private-key blocks, database connection strings |
 | Fallback | Conservative Shannon-entropy candidate detector; false positives remain possible |
-| Optional NER | spaCy PERSON/ORG/LOCATION detector, off by default (`pip install 'veilrelay[ner]'`) |
+| Optional NER | spaCy PERSON/ORG/LOCATION detector, off by default (`python -m pip install '.[ner]'`) |
 
 Detection is a combination of candidate patterns and validators. Passing a checksum does not prove that an identifier is real or belongs to a particular person. Optional NER requires the model to be installed by the operator; VeilRelay does not download it automatically.
 
