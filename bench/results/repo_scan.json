@@ -1,0 +1,29 @@
+{
+  "generated_at_utc": "2026-11-06T13:07:55.381183+00:00",
+  "files_scanned": 68,
+  "raw_values_recorded": false,
+  "source_and_docs": {},
+  "synthetic_fixtures": {
+    "AADHAAR": 3,
+    "ANTHROPIC_KEY": 4,
+    "AWS_ACCESS_KEY": 9,
+    "CREDIT_CARD": 5,
+    "DB_CONNECTION": 4,
+    "EMAIL": 58,
+    "GITHUB_TOKEN": 4,
+    "GITLAB_TOKEN": 4,
+    "HIGH_ENTROPY_SECRET": 4,
+    "IBAN": 5,
+    "IFSC": 5,
+    "IP_ADDRESS": 8,
+    "JWT": 4,
+    "OPENAI_KEY": 4,
+    "PAN": 5,
+    "PHONE": 15,
+    "PRIVATE_KEY": 4,
+    "SSN": 5,
+    "STRIPE_KEY": 4,
+    "UPI_ID": 6
+  },
+  "status": "clean"
+}

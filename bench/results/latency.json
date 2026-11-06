@@ -1,0 +1,10 @@
+{
+  "added_p50_ms": 0.02004,
+  "added_p95_ms": 0.041111,
+  "baseline_p50_ms": 0.00994,
+  "baseline_p95_ms": 0.018902,
+  "repeats_per_example": 10,
+  "samples": 240,
+  "veilrelay_p50_ms": 0.030942,
+  "veilrelay_p95_ms": 0.057577
+}

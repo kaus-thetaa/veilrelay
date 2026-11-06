@@ -1,0 +1,37 @@
+{
+  "dataset_sources": [
+    {
+      "name": "synthetic",
+      "rows": 24,
+      "status": "completed"
+    },
+    {
+      "name": "ai4privacy-openpii-nano-validation",
+      "rows": 0,
+      "status": "not_downloaded"
+    }
+  ],
+  "detection_metrics_file": "detection_metrics.csv",
+  "detector_configuration": "BuiltinDetector + SecretDetector; PolicyConfig defaults",
+  "latency": {
+    "added_p50_ms": 0.02004,
+    "added_p95_ms": 0.041111,
+    "baseline_p50_ms": 0.00994,
+    "baseline_p95_ms": 0.018902,
+    "repeats_per_example": 10,
+    "samples": 240,
+    "veilrelay_p50_ms": 0.030942,
+    "veilrelay_p95_ms": 0.057577
+  },
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "presidio": {
+    "reason_class": "ModuleNotFoundError",
+    "status": "skipped"
+  },
+  "python": "3.13.5",
+  "run_at_utc": "2026-11-06T13:07:49.691901+00:00",
+  "utility": {
+    "reason": "OLLAMA_MODEL is not configured",
+    "status": "skipped"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "reason": "OLLAMA_MODEL is not configured",
+  "status": "skipped",
+  "tasks": []
+}
