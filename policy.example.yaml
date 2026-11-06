@@ -1,0 +1,35 @@
+# VeilRelay policy. The default is fail-closed and reversible redaction.
+fail_mode: closed
+# redact = reversible typed placeholder; mask = irreversible partial mask;
+# block = reject request; allow = forward the matched value as-is.
+default_action: redact
+ttl_seconds: 300
+max_request_bytes: 1048576
+timeout_seconds: 30
+
+# Actions override default_action by detected entity type.
+actions:
+  CREDIT_CARD: block
+  AADHAAR: redact
+  AWS_ACCESS_KEY: block
+  GITHUB_TOKEN: block
+  OPENAI_KEY: block
+  ANTHROPIC_KEY: block
+  PRIVATE_KEY: block
+
+# Exact-value allowlist. Keep this list small; entries are stored in the YAML file.
+allowlist: []
+
+# Optional custom regex rules.
+custom_rules:
+  - name: internal-reference
+    entity_type: INTERNAL_REFERENCE
+    pattern: '\bCASE-[0-9]{6}\b'
+    action: redact
+    case_sensitive: false
+
+# NER is off by default. Install `pip install 'veilrelay[ner]'` and install
+# the configured spaCy model separately; VeilRelay never downloads it.
+ner:
+  enabled: false
+  model: en_core_web_sm

@@ -46,7 +46,7 @@ The default mode is **fail closed**: detector/policy processing errors prevent f
 ## Vault handling
 
 - Raw values are stored only in process memory in a short-lived vault.
-- Default scope is per request. Conversation-scoped mappings are opt-in and require a caller-provided conversation identifier; the identifier is not trusted as an authentication mechanism.
+- Default scope is per request. Conversation-scoped mappings are opt-in and require a caller-provided conversation identifier plus an Authorization credential; vaults are namespaced by a one-way digest of that credential. The identifier is not trusted as an authentication mechanism. Anonymous callers remain request-scoped.
 - Vault entries expire after a configurable TTL. Request-scoped vaults are cleared in `finally` paths after completion, disconnect, or error.
 - Vault values must never be logged, written to disk, serialized into audit events, or exposed in metrics or exception messages.
 - Python cannot guarantee secure zeroization of immutable strings or copies. Clearing references is best-effort and does not prevent memory forensic recovery on a compromised host.
