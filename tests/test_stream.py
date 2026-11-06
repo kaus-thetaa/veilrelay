@@ -66,3 +66,33 @@ def test_sse_restoration_keeps_json_valid_for_quoted_multiline_values() -> None:
     restored_body = json.loads(restore_json_body(response_body, vault))
     assert restored_body["content"] == original
     vault.clear()
+
+
+def test_stream_rewriter_without_tokens_is_passthrough() -> None:
+    rewriter = StreamRewriter(TokenVault())
+    assert rewriter.feed("plain content") == "plain content"
+    assert rewriter.finish() == ""
+
+
+def test_sse_event_finish_and_control_frames() -> None:
+    from veilrelay.stream import SSEStreamRewriter
+
+    vault = TokenVault()
+    vault.issue("EMAIL", "alice@example.com")
+    rewriter = SSEStreamRewriter(vault)
+    assert rewriter.feed(": heartbeat\n\n") == ": heartbeat\n\n"
+    done = "data: [DONE]\n\n"
+    assert rewriter.feed(done) == done
+    assert rewriter.feed("data: literal <EMAIL_1>") == ""
+    assert rewriter.finish() == "data: literal alice@example.com"
+    assert rewriter.finish() == ""
+    vault.clear()
+
+
+def test_restore_json_body_falls_back_for_non_json() -> None:
+    from veilrelay.stream import restore_json_body
+
+    vault = TokenVault()
+    token = vault.issue("EMAIL", "alice@example.com")
+    assert restore_json_body(f"address={token}".encode(), vault) == b"address=alice@example.com"
+    vault.clear()
