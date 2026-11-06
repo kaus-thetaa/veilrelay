@@ -1,0 +1,27 @@
+services:
+  veilrelay:
+    build: .
+    image: veilrelay:0.1.0
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      UPSTREAM_BASE_URL: ${UPSTREAM_BASE_URL:-https://api.openai.com/v1}
+      UPSTREAM_ALLOWED_HOSTS: ${UPSTREAM_ALLOWED_HOSTS:-api.openai.com}
+      MAX_REQUEST_BYTES: ${MAX_REQUEST_BYTES:-1048576}
+      UPSTREAM_TIMEOUT_SECONDS: ${UPSTREAM_TIMEOUT_SECONDS:-30}
+      VEIL_POLICY_FILE: /etc/veilrelay/policy.yaml
+      AUDIT_LOG_PATH: /var/lib/veilrelay/audit.jsonl
+    volumes:
+      - ./policy.example.yaml:/etc/veilrelay/policy.yaml:ro
+      - veilrelay-audit:/var/lib/veilrelay
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+volumes:
+  veilrelay-audit:
