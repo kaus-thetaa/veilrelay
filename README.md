@@ -152,3 +152,5 @@ The configured GitHub Actions workflow runs these checks on Python 3.11–3.13, 
 - [Benchmark methodology](bench/METHODOLOGY.md)
 - [Changelog](CHANGELOG.md)
 - [Security reporting](SECURITY.md)
+- [Final build report](docs/FINAL_REPORT.md)
+- [Commit/test log](docs/COMMIT_TEST_LOG.md)

@@ -1,6 +1,6 @@
 """Download and normalize the Ai4Privacy OpenPII Nano sample (CC-BY-4.0).
 
-Optional dependency: pip install 'veilrelay[bench]'. No dataset bytes are committed.
+Optional dependency: run `python -m pip install '.[bench]'` from the repository root. No dataset bytes are committed.
 """
 
 from __future__ import annotations
